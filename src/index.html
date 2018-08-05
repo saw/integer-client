@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container" id="container">
+            <h1 class="title">Generate a unique integer</h1>
+            <button class="button" id="doit">Make me a new integer</button>   
+        </div>
+        <div class="container content">
+            <div class="is-mobile is-centered field is-invisible">
+                <p class="holder">
+                    <span class="title is-4 out"></span>
+                </p>
+                <a class="is-white">
+                    <span class="icon">
+                        <i class="fas fa-copy"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+
+</html>
