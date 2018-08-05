@@ -1,6 +1,5 @@
 import './scss/index.scss';
 // const copy = require('./copy');
-let btn = document.querySelector('.copybtn i');
 let lastInt = 0;
 const intergers = require('./integers');
 const uuid = require('./uuid');
@@ -17,7 +16,6 @@ function handleClick(e) {
        document.querySelector('.out').innerText = resp;
        lastInt = resp;
        document.querySelector('.field').classList.remove('is-invisible');
-       btn.className = 'fas fa-copy';
     }).catch(e => {
         console.error(e);
     });
