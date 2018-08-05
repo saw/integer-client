@@ -1,30 +1,38 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"> -->
 </head>
 
 <body>
     <section class="section">
         <div class="container" id="container">
-            <h1 class="title">Generate a unique integer</h1>
+            <h1 class="title">Generate a unique integer <span class="what"><a href="#what">What is this?</a></span></h1>
+            
+        </div>
+        <div class="container hasbtn">
             <button class="button" id="doit">Make me a new integer</button>   
         </div>
-        <div class="container content">
-            <div class="is-mobile is-centered field is-invisible">
+        <div class="container">
+            <div class="is-centered field is-invisible">
                 <p class="holder">
                     <span class="title is-4 out"></span>
                 </p>
-                <a class="copybtn is-white">
-                    <span class="icon">
-                        <i class="fas fa-copy"></i>
-                    </span>
-                </a>
             </div>
         </div>
     </section>
-
+    <section id="what" class="section collapsed">
+        <div class="container content">
+            <p>Just to experiment with AWS Lamdba I made a Lambda function which generates a unique integer. 
+                Click the button above and this page will make an xhr to the aws endpoint that give you a unique number.</p><p>
+            The unqiueness is guarunteed by <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html#Expressions.UpdateExpressions.SET.IncrementAndDecrement">dynamodb atomic writes</a> . When you make a request for a number I make a dynamo update-item
+        to add one to the saved value, sending the result.</p>
+            <p><a href="/#">Cool.</a></p>
+        </div>
+        
+    </section>
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 

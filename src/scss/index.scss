@@ -1,14 +1,88 @@
-@import "~bulma/bulma";
+// @import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/minireset.sass";
 
+html {
+    font-family: sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+.section {
+    margin-top:50px;
+}
+
+@media all and (max-width: 480px) {
+    .section {
+        margin-top:0;
+    }
+}
+
+.button {
+    border: 1px solid black;
+    background: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+    margin-top:10px;
+    
+    @media all and (max-width: 480px) {
+        &.hasbtn {
+            text-align: center;
+        }
+    }
+}
+
+
+
+.title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
 .field {
     padding: 10px;
-    width: 200px;
+    // width: 200px;
 }
 
 .out {
     margin-top: 10px;
+    font-size: 4rem;
 }
 
-.field {
-    display: flex;
+.is-invisible {
+    display: none;
 }
+
+.is-centered {
+    text-align: center;
+}
+
+.collapsed {
+    display: none;
+    &:target {
+        display: block;
+    }
+}
+
+.what {
+    font-size: 1rem;
+
+    a, a:visited{
+        color: blue;
+    }
+}
+
+.content {
+    text-align: justify;
+    word-break: break-word;
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
