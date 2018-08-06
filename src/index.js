@@ -4,9 +4,7 @@ let lastInt = 0;
 const intergers = require('./integers');
 const uuid = require('./uuid');
 function handleClick(e) {
-    if (e && e.target) {
-        e.target.innerHTML = '&hellip;'
-    }
+        document.getElementById('doit').innerHTML = '&hellip;'
     // document.querySelector('.field').classList.add('is-invisible');
     document.querySelector('.out').innerHTML = "&nbsp;";
     intergers.getInt().then(resp => {
@@ -22,7 +20,7 @@ function handleClick(e) {
 
 function handleGuid(e) {
     let out = document.querySelector('.guid');
-    e.target.innerHTML = '&hellip;'
+    document.querySelector('#guid').innerHTML = '&hellip;'
     out.querySelector('ul').innerHTML = '<li>';
     uuid.getGuid().then(resp => {
 
