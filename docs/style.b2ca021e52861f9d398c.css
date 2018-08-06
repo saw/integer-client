@@ -1,0 +1,131 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+ul {
+  list-style: none; }
+
+button,
+input,
+select,
+textarea {
+  margin: 0; }
+
+html {
+  box-sizing: border-box; }
+
+*, *::before, *::after {
+  box-sizing: inherit; }
+
+img,
+audio,
+video {
+  height: auto;
+  max-width: 100%; }
+
+iframe {
+  border: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td,
+th {
+  padding: 0;
+  text-align: left; }
+
+html {
+  font-family: sans-serif; }
+
+body {
+  text-align: center; }
+
+.section {
+  margin-top: 50px; }
+
+@media all and (max-width: 480px) {
+  .section {
+    margin-top: 0; } }
+
+.button {
+  border: 1px solid black;
+  background: #fff;
+  padding: 10px;
+  cursor: pointer; }
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  text-align: left;
+  margin-top: 10px; }
+  @media all and (max-width: 480px) {
+    .container.hasbtn {
+      text-align: center; } }
+
+.title {
+  font-size: 2rem;
+  font-weight: bolder; }
+
+.field {
+  padding: 10px; }
+
+.out {
+  margin-top: 10px;
+  font-size: 4rem; }
+
+.is-invisible {
+  display: none; }
+
+.is-centered {
+  text-align: center; }
+
+.collapsed {
+  display: none; }
+  .collapsed:target {
+    display: block; }
+
+.what {
+  font-size: 1rem; }
+  .what a, .what a:visited {
+    color: blue; }
+
+.content {
+  text-align: justify;
+  word-break: break-word; }
+  .content p {
+    margin-bottom: 1rem; }
+
