@@ -21,7 +21,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin('docs', {}),
+    new CleanWebpackPlugin('docs', {
+        exclude:  ['CNAME']
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
     }),
