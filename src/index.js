@@ -3,14 +3,12 @@ import './scss/index.scss';
 let lastInt = 0;
 const intergers = require('./integers');
 const uuid = require('./uuid');
+const doit = document.getElementById('doit');
 function handleClick(e) {
-        document.getElementById('doit').innerHTML = '&hellip;'
-    // document.querySelector('.field').classList.add('is-invisible');
+    doit.innerHTML = '&hellip;'
     document.querySelector('.out').innerHTML = "&nbsp;";
     intergers.getInt().then(resp => {
-        if (e && e.target) {
-            e.target.innerHTML = 'Get another integer'
-        }
+        doit.innerHTML = 'Get another integer';
         document.querySelector('.out').innerText = resp;
         lastInt = resp;
     }).catch(e => {
