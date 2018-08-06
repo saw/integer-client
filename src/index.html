@@ -14,21 +14,28 @@
         </div>
         <div class="container hasbtn">
             <button class="button" id="doit">Make me a new integer</button>   
+
+            <button class="button" id="guid" title="give me a uuid instead">I don't trust you</button>   
         </div>
-        <div class="container">
-            <div class="is-centered field is-invisible">
+        <div class="container has-flex">
+            <div class="is-centered field">
                 <p class="holder">
-                    <span class="title is-4 out"></span>
+                    <span class="title is-4 out">&nbsp;</span>
                 </p>
+            </div>
+            <div class="is-centered guid field is-invisible">
+                <ul>
+                </ul>
             </div>
         </div>
     </section>
     <section id="what" class="section collapsed">
         <div class="container content">
-            <p>Just to experiment with AWS Lamdba I made a Lambda function which generates a unique integer. 
-                Click the button above and this page will make an xhr to the aws endpoint that give you a unique number.</p><p>
+            <p>I made this to get a sense of what "serverless" apps are like. The generation of integers and UUIDs is handled via AWS Lambda functions.</p> 
+                To generate an integer this page will make an xhr to the aws endpoint that give you a unique number.
             The unqiueness is guarunteed by <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html#Expressions.UpdateExpressions.SET.IncrementAndDecrement">dynamodb atomic writes</a> . When you make a request for a number I make a dynamo update-item
-        to add one to the saved value, sending the result.</p>
+        to add one to the saved value, sending the result. In case you wondered, the maximum possible number is <code>9.9999999999999999999999999999999999999E+125</code>. According to amazon dynamo can handle around 4,000rps to a single partition, so that's what we can support.</p>
+            <p>The UUIDs are generated using the python3 module.</p>
             <p><a href="#">Cool.</a></p>
         </div>
         

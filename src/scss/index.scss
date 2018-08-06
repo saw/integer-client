@@ -39,24 +39,64 @@ body {
     }
 }
 
-
+.has-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
 .title {
     font-size: 2rem;
     font-weight: bolder;
+    &.is-4 {
+        font-size: 2.5em;
+    }
 }
 .field {
     padding: 10px;
-    // width: 200px;
+    ul {
+        text-align: left;
+        position: relative;
+        font-family: 'Courier New', Courier, monospace;
+        &:hover {
+            background: yellow;
+            &::after {
+                content: 'This is a UUID generated using python3 UUID on amazon lambda. It\'s guaranteed to be unique. So you don\'t need to trust me';
+                position: absolute;
+                font-family: sans-serif;
+                font-size: .7em;
+                top:100%;
+                right: 0;
+                margin-top: 5px;
+                background: #fff;
+            }
+        }
+    }
+
+    li {
+        position: relative;
+        &:hover {
+            text-decoration: underline;
+            &::before {
+                content: attr(title);
+                position: absolute;
+                padding-left: 4px;
+                font-size: .8em;
+                left: -120px;
+                width: 120px;
+                background: rgba(255,255,255,0.8);
+                text-shadow: 0px 0px 1px #fff;
+                text-align: right;
+            }
+        }
+
+    }
 }
 
 .out {
     margin-top: 10px;
     font-size: 4rem;
-}
-
-.is-invisible {
-    display: none;
 }
 
 .is-centered {
@@ -70,6 +110,10 @@ body {
     }
 }
 
+.is-invisible {
+    display: none;
+}
+
 .what {
     font-size: 1rem;
 
@@ -81,6 +125,7 @@ body {
 .content {
     text-align: justify;
     word-break: break-word;
+    hyphens: auto;
     p {
         margin-bottom: 1rem;
     }

@@ -4,35 +4,40 @@ let lastInt = 0;
 const intergers = require('./integers');
 const uuid = require('./uuid');
 function handleClick(e) {
-    if(e && e.target) {
+    if (e && e.target) {
         e.target.innerHTML = '&hellip;'
     }
     // document.querySelector('.field').classList.add('is-invisible');
     document.querySelector('.out').innerHTML = "&nbsp;";
     intergers.getInt().then(resp => {
-        if(e && e.target) {
+        if (e && e.target) {
             e.target.innerHTML = 'Get another integer'
         }
-       document.querySelector('.out').innerText = resp;
-       lastInt = resp;
-       document.querySelector('.field').classList.remove('is-invisible');
+        document.querySelector('.out').innerText = resp;
+        lastInt = resp;
     }).catch(e => {
         console.error(e);
     });
-    // uuid.getGuid().then(resp => {
-    //     console.log('guid', resp);
-    // })
 }
 
-// function handleCopy(e) {
-//     copy(document.querySelector('.out'));
-//     // navigator.clipboard.writeText(lastInt).then(() => {
-//     //     btn.classList.remove('fa-copy');
-//     //     btn.classList.add('fa-check');
-//     // });
-// }
+function handleGuid(e) {
+    let out = document.querySelector('.guid');
+    e.target.innerHTML = '&hellip;'
+    out.querySelector('ul').innerHTML = '<li>';
+    uuid.getGuid().then(resp => {
+
+        out.classList.remove('is-invisible');
+        let str = `
+       <li title="id">${resp.id}</li>
+       <li title="int">${resp.int}</li>
+       <li title="base32 string">${resp.short}</li>
+       `;
+        e.target.innerText = 'Get me a fresh UUID'
+        out.querySelector('ul').innerHTML = str;
+    });
+}
 
 handleClick();
 // copybtn
-// document.querySelector('.copybtn').addEventListener('click', handleCopy);
+document.querySelector('#guid').addEventListener('click', handleGuid);
 document.getElementById('doit').addEventListener('click', handleClick);
