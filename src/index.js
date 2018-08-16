@@ -4,13 +4,29 @@ let lastInt = 0;
 const intergers = require('./integers');
 const uuid = require('./uuid');
 const doit = document.getElementById('doit');
+
+async function primeCache() {
+    const int = await intergers.getInt();
+    localStorage.setItem('num', int);
+}
+
+async function fetchInt() {
+    const cachedValue = localStorage.getItem('num');
+    if(cachedValue) {
+        primeCache();
+        return cachedValue;
+    }
+    const int = await intergers.getInt();
+    primeCache();
+    return int;
+}
+
 function handleClick(e) {
     doit.innerHTML = '&hellip;'
     document.querySelector('.out').innerHTML = "&nbsp;";
-    intergers.getInt().then(resp => {
+    fetchInt().then(resp => {
         doit.innerHTML = 'Get another integer';
         document.querySelector('.out').innerText = resp;
-        lastInt = resp;
     }).catch(e => {
         console.error(e);
     });

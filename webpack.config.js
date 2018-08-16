@@ -12,6 +12,10 @@ module.exports = {
     path: path.resolve(__dirname, 'docs'),
     filename: '[name].[chunkhash].js'
   },
+  // devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './docs'
+  },
   module: {
     rules: [
       {
