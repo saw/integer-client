@@ -32,7 +32,7 @@
     <section id="what" class="section collapsed">
         <div class="container content">
             <p>I made this to get a sense of what "serverless" apps are like. The generation of integers and UUIDs is handled via AWS Lambda functions.</p> 
-                To generate an integer this page will make an xhr to the aws endpoint that give you a unique number.
+                To generate an integer this page will make an xhr to the aws endpoint that give you a unique number. (the numbers you recieve may be out of sequence because I am doing optimistic pre-fetch)
             The unqiueness is guarunteed by <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html#Expressions.UpdateExpressions.SET.IncrementAndDecrement">dynamodb atomic writes</a> . When you make a request for a number I make a dynamo update-item
         to add one to the saved value, sending the result. In case you wondered, the maximum possible number is <code>9.9999999999999999999999999999999999999E+125</code>. According to amazon dynamo can handle around 4,000rps to a single partition, so that's what we can support.</p>
             <p>The UUIDs are generated using the python3 UUID module.</p>

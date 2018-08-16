@@ -6,6 +6,7 @@ const uuid = require('./uuid');
 const doit = document.getElementById('doit');
 
 async function primeCache() {
+    localStorage.removeItem('num');
     const int = await intergers.getInt();
     localStorage.setItem('num', int);
 }
@@ -24,7 +25,9 @@ async function fetchInt() {
 function handleClick(e) {
     doit.innerHTML = '&hellip;'
     document.querySelector('.out').innerHTML = "&nbsp;";
+    doit.setAttribute('disabled', true);
     fetchInt().then(resp => {
+        doit.removeAttribute('disabled');
         doit.innerHTML = 'Get another integer';
         document.querySelector('.out').innerText = resp;
     }).catch(e => {
@@ -48,8 +51,7 @@ function handleGuid(e) {
         out.querySelector('ul').innerHTML = str;
     });
 }
-
-handleClick();
 // copybtn
 document.querySelector('#guid').addEventListener('click', handleGuid);
 document.getElementById('doit').addEventListener('click', handleClick);
+handleClick();
