@@ -1,6 +1,4 @@
 import './scss/index.scss';
-// const copy = require('./copy');
-let lastInt = 0;
 const intergers = require('./integers');
 const uuid = require('./uuid');
 const doit = document.getElementById('doit');
